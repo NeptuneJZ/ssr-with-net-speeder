@@ -5,8 +5,7 @@ MAINTAINER neptunegg <tua@live.cn>
 RUN apt-get update && \
 apt-get clean  
 
-RUN dpkg -y --add-architecture i386 && \
-apt-get install -y openssh-server python python-pip python-m2crypto libnet1-dev libpcap0.8-dev git gcc mailutils postfix curl wget file bzip2 gzip unzip bsdmainutils python util-linux ca-certificates tmux lib32gcc1 libstdc++6 libstdc++6:i386  && \
+RUN apt-get install -y openssh-server python python-pip python-m2crypto libnet1-dev libpcap0.8-dev git gcc && \
 apt-get clean
 
 RUN echo "l4d2server:l4d2server123"|chpasswd
@@ -14,13 +13,13 @@ RUN sed -ri 's/^PermitRootLogin\s+.*/PermitRootLogin yes/' /etc/ssh/sshd_config 
 	sed -ri 's/UsePAM yes/#UsePAM yes/g' /etc/ssh/sshd_config
 
 
-WORKDIR l4d2server
+#WORKDIR l4d2server
 
-RUN wget https://gameservermanagers.com/dl/l4d2server
+#RUN wget https://gameservermanagers.com/dl/l4d2server
 
-RUN chmod +x l4d2server
+#RUN chmod +x l4d2server
 
-RUN ./l4d2server install -y
+#RUN ./l4d2server install -y
 
 #RUN git clone https://github.com/snooda/net-speeder.git net-speeder
 #WORKDIR net-speeder
