@@ -6,7 +6,7 @@ RUN apt-get update && \
 apt-get clean  
 
 RUN apt-get install -y openssh-server python python-pip python-m2crypto libnet1-dev libpcap0.8-dev git gcc && \
-dpkg --add-architecture i386; apt-get update;sudo apt-get install mailutils postfix curl wget file bzip2 gzip unzip bsdmainutils python util-linux ca-certificates tmux lib32gcc1 libstdc++6 libstdc++6:i386  && \
+dpkg -y --add-architecture i386; apt-get update;sudo apt-get install -y mailutils postfix curl wget file bzip2 gzip unzip bsdmainutils python util-linux ca-certificates tmux lib32gcc1 libstdc++6 libstdc++6:i386  && \
 apt-get clean
 
 RUN echo "l4d2server:l4d2server123"|chpasswd
@@ -20,7 +20,7 @@ RUN wget https://gameservermanagers.com/dl/l4d2server
 
 RUN chmod +x l4d2server
 
-RUN ./l4d2server install
+RUN ./l4d2server install -y
 
 #RUN git clone https://github.com/snooda/net-speeder.git net-speeder
 #WORKDIR net-speeder
