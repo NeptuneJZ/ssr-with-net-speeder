@@ -1,5 +1,5 @@
 # ssr-with-net-speeder
-FROM ubuntu:14.04.3
+FROM ubuntu:14.04.5
 MAINTAINER neptunegg <tua@live.cn>
 
 RUN apt-get update && \
