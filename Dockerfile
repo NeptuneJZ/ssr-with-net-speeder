@@ -9,13 +9,10 @@ RUN apt-get install -y openssh-server python python-pip python-m2crypto libnet1-
 dpkg --add-architecture i386; sudo apt-get update;sudo apt-get install mailutils postfix curl wget file bzip2 gzip unzip bsdmainutils python util-linux ca-certificates tmux lib32gcc1 libstdc++6 libstdc++6:i386  && \
 apt-get clean
 
-RUN echo "root:password"|chpasswd
 RUN echo "l4d2server:l4d2server123"|chpasswd
 RUN sed -ri 's/^PermitRootLogin\s+.*/PermitRootLogin yes/' /etc/ssh/sshd_config && \
 	sed -ri 's/UsePAM yes/#UsePAM yes/g' /etc/ssh/sshd_config
 
-
-su - l4d2server
 
 WORKDIR l4d2server
 
