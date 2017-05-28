@@ -8,7 +8,7 @@ apt-get clean
 RUN apt-get install -y openssh-server python python-pip python-m2crypto libnet1-dev libpcap0.8-dev git gcc && \
 apt-get clean
 
-RUN echo "l4d2server:l4d2server123"|chpasswd
+RUN echo "root:password"|chpasswd
 RUN sed -ri 's/^PermitRootLogin\s+.*/PermitRootLogin yes/' /etc/ssh/sshd_config && \
 	sed -ri 's/UsePAM yes/#UsePAM yes/g' /etc/ssh/sshd_config
 
