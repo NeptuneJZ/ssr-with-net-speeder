@@ -5,8 +5,8 @@ MAINTAINER neptunegg <tua@live.cn>
 RUN apt-get update && \
 apt-get clean  
 
-RUN apt-get install -y openssh-server python python-pip python-m2crypto libnet1-dev libpcap0.8-dev git gcc && \
-dpkg --add-architecture i386; sudo apt-get update;sudo apt-get install mailutils postfix curl wget file bzip2 gzip unzip bsdmainutils python util-linux ca-certificates tmux lib32gcc1 libstdc++6 libstdc++6:i386  && \
+RUN apt-get install -y openssh-server python python-pip python-m2crypto libnet1-dev libpcap0.8-dev git gcc wget && \
+dpkg --add-architecture i386; apt-get update;sudo apt-get install mailutils postfix curl wget file bzip2 gzip unzip bsdmainutils python util-linux ca-certificates tmux lib32gcc1 libstdc++6 libstdc++6:i386  && \
 apt-get clean
 
 RUN echo "l4d2server:l4d2server123"|chpasswd
