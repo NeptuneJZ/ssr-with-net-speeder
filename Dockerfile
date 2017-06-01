@@ -1,8 +1,8 @@
 # l4d2server
 FROM ubuntu:16.04
 
-RUN apt-get update
 RUN dpkg --add-architecture i386
+RUN apt-get update
 #RUN ls /etc/dpkg/dpkg.cfg.d/
 #RUN sh -c "echo 'foreign-architecture i386' > /etc/dpkg/dpkg.cfg.d/multiarch"
 
