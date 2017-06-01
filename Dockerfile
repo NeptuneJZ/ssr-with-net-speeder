@@ -1,5 +1,5 @@
 # l4d2server
-FROM ubuntu:14.04
+FROM ubuntu:16.04
 
 RUN apt-get update
 RUN dpkg --add-architecture i386
