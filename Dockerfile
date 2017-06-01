@@ -13,6 +13,9 @@ RUN echo 'root:password' |chpasswd
 RUN sed -ri 's/^PermitRootLogin\s+.*/PermitRootLogin yes/' /etc/ssh/sshd_config
 RUN sed -ri 's/UsePAM yes/#UsePAM yes/g' /etc/ssh/sshd_config
 
+RUN echo 'l4d2server:l4d2server' |chpasswd
+RUN su - l4d2server
+
 EXPOSE 22
 
 CMD ["/usr/sbin/sshd", "-D"]
