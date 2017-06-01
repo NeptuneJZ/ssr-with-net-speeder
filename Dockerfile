@@ -19,7 +19,7 @@ RUN echo 'l4d2server:l4d2server' |chpasswd
 RUN su - l4d2server
 
 
-RUN wget su l4d2server -l -c "https://gameservermanagers.com/dl/l4d2server -P /home/l4d2server"
+RUN su l4d2server -l -c "wget https://gameservermanagers.com/dl/l4d2server -P /home/l4d2server"
 RUN chmod +x /home/l4d2server/l4d2server
 RUN su l4d2server -l -c "/home/l4d2server/l4d2server install"
 
