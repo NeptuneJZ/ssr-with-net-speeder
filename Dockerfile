@@ -17,9 +17,10 @@ RUN adduser l4d2server
 RUN echo 'l4d2server:l4d2server' |chpasswd
 RUN su - l4d2server
 
+
 RUN wget https://gameservermanagers.com/dl/l4d2server
 RUN chmod +x l4d2server
-RUN ./l4d2server install
+RUN su l4d2server -l -c "./l4d2server install"
 
 EXPOSE 22
 
