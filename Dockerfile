@@ -1,9 +1,10 @@
 # l4d2server
-FROM ubuntu:12.04
+FROM ubuntu:14.04
 
 RUN apt-get update
-RUN ls /etc/dpkg/dpkg.cfg.d/
-RUN sh -c "echo 'foreign-architecture i386' > /etc/dpkg/dpkg.cfg.d/multiarch"
+RUN dpkg --add-architecture i386
+#RUN ls /etc/dpkg/dpkg.cfg.d/
+#RUN sh -c "echo 'foreign-architecture i386' > /etc/dpkg/dpkg.cfg.d/multiarch"
 
 RUN apt-get install -y openssh-server mailutils postfix curl wget file bzip2 gzip unzip bsdmainutils python util-linux ca-certificates tmux lib32gcc1 libstdc++6 libstdc++6:i386
 RUN mkdir /var/run/sshd
@@ -19,7 +20,7 @@ RUN su - l4d2server
 
 
 RUN wget https://gameservermanagers.com/dl/l4d2server -P /home/l4d2server
-RUN chmod +x l4d2server
+RUN chmod +x /home/l4d2server/l4d2server
 RUN su l4d2server -l -c "./home/l4d2server/l4d2server install"
 
 EXPOSE 22
