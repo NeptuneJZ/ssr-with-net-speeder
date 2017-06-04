@@ -6,7 +6,7 @@ RUN apt-get update
 #RUN ls /etc/dpkg/dpkg.cfg.d/
 #RUN sh -c "echo 'foreign-architecture i386' > /etc/dpkg/dpkg.cfg.d/multiarch"
 
-RUN apt-get install -y openssh-server mailutils postfix curl wget file bzip2 gzip unzip bsdmainutils python util-linux ca-certificates tmux lib32gcc1 libstdc++6 libstdc++6:i386
+RUN apt-get install -y openssh-server mailutils postfix curl wget file bzip2 gzip unzip bsdmainutils python util-linux ca-certificates tmux lib32gcc1 libstdc++6 libstdc++6:i386 binutils strings
 RUN mkdir /var/run/sshd
 
 RUN echo 'root:password' |chpasswd
@@ -28,6 +28,7 @@ RUN su l4d2server -l -c "yes|/home/l4d2server/l4d2server install"
 
 #RUN echo y > su l4d2server -l -c "/home/l4d2server/l4d2server install"
 EXPOSE 22
+EXPOSE 27015
 
 CMD ["/usr/sbin/sshd", "-D"]
 
