@@ -23,8 +23,8 @@ RUN su l4d2server -l -c "wget https://gameservermanagers.com/dl/l4d2server -P /h
 RUN chmod +x /home/l4d2server/l4d2server
 
 RUN su l4d2server -l -c "/home/l4d2server/l4d2server install" <<EOF
-y
-EOF
+RUN y
+RUN EOF
 #RUN su l4d2server -l -c "/home/l4d2server/l4d2server install" 
 
 #RUN echo y > su l4d2server -l -c "/home/l4d2server/l4d2server install"
