@@ -29,6 +29,7 @@ RUN su l4d2server -l -c "yes|/home/l4d2server/l4d2server install"
 #RUN echo y > su l4d2server -l -c "/home/l4d2server/l4d2server install"
 EXPOSE 22
 EXPOSE 27015
+EXPOSE 27005
 
 CMD ["/usr/sbin/sshd", "-D"]
 
