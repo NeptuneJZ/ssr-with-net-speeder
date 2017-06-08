@@ -27,12 +27,15 @@ RUN su l4d2server -l -c "yes|/home/l4d2server/l4d2server install"
 RUN su l4d2server -l -c "rm -f /home/l4d2server/serverfiles/left4dead2/cfg/l4d2-server.cfg"
 COPY l4d2-server.cfg /home/l4d2server/serverfiles/left4dead2/cfg
 
+RUN chown l4d2server /home/l4d2server/serverfiles/left4dead2/cfg/l4d2-server.cfg
+RUN chgrp l4d2server /home/l4d2server/serverfiles/left4dead2/cfg/l4d2-server.cfg
 #RUN su l4d2server -l -c "/home/l4d2server/l4d2server install" 
 
 #RUN echo y > su l4d2server -l -c "/home/l4d2server/l4d2server install"
 EXPOSE 22
 EXPOSE 27015
 EXPOSE 27005
+EXPOSE 26901
 
 CMD ["/usr/sbin/sshd", "-D"]
 
