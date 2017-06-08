@@ -24,6 +24,9 @@ RUN chmod +x /home/l4d2server/l4d2server
 
 RUN su l4d2server -l -c "yes|/home/l4d2server/l4d2server install"
 
+RUN su l4d2server -l -c "remove /home/l4d2server/serverfiles/left4dead2/cfg/l4d2-server.cfg"
+COPY l4d2-server.cfg /home/l4d2server/serverfiles/left4dead2/cfg
+
 #RUN su l4d2server -l -c "/home/l4d2server/l4d2server install" 
 
 #RUN echo y > su l4d2server -l -c "/home/l4d2server/l4d2server install"
